@@ -1,3 +1,5 @@
+package org.github.cmonkey.actor
+
 import akka.actor.{ActorSystem, Props}
 
 object SupervisingActorApp extends App {
