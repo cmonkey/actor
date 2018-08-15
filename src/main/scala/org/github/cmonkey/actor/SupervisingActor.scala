@@ -1,3 +1,5 @@
+package org.github.cmonkey.actor
+
 import akka.actor.{Actor, Props}
 
 class SupervisingActor extends Actor {
