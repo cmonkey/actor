@@ -2,7 +2,7 @@ package org.github.cmonkey.actor
 
 import java.io.File
 
-import akka.actor.{Actor, PoisonPill}
+import akka.actor.{Actor, PoisonPill, Props}
 import akka.event.Logging
 
 import scala.collection.mutable.ListBuffer
@@ -28,4 +28,8 @@ class FileReaderActor extends Actor{
 
     case _ => log.info("Still waiting for a text file")
   }
+}
+
+object FileReaderActor {
+  def props = Props(new FileReaderActor)
 }
