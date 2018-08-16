@@ -15,7 +15,7 @@ class FileReaderActor extends Actor{
 
     case f: File => {
 
-      log.info("Reading file ${f.getName} ")
+      log.info(s"Reading file ${f.getName}")
 
       val words = new ListBuffer[String]
 
