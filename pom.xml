@@ -30,7 +30,7 @@
             <groupId>org.scala-lang.modules</groupId>
             <artifactId>scala-xml_2.12</artifactId>
             <version>RELEASE</version>
-        </dependency
+        </dependency>
     </dependencies>
 
 </project>
