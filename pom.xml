@@ -26,6 +26,11 @@
             <version>2.5.14</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.scala-lang.modules</groupId>
+            <artifactId>scala-xml_2.12</artifactId>
+            <version>RELEASE</version>
+        </dependency
     </dependencies>
 
 </project>
