@@ -1,8 +1,10 @@
 package org.github.cmonkey.actor.kafka
 
+import java.util
 import java.util.Properties
 
 import org.apache.kafka.clients.consumer.{ConsumerConfig, ConsumerRecord, ConsumerRecords, KafkaConsumer}
+import org.apache.kafka.common.TopicPartition
 import org.apache.kafka.common.serialization.{StringDeserializer, StringSerializer}
 
 import scala.collection.JavaConverters
@@ -32,7 +34,12 @@ class Consumer(topic: String, broker:String) {
 
   val consumer = new KafkaConsumer[String, String](configuration)
   val subscribers = List[String](topic)
-  consumer.subscribe(JavaConverters.asJavaCollection(subscribers))
+  val topicPartition = new TopicPartition(topic, 0)
+
+  consumer.assign(util.Arrays.asList(topicPartition))
+
+  consumer.seek(topicPartition, 0)
+  //consumer.subscribe(JavaConverters.asJavaCollection(subscribers))
 
   var isPoll = true
 
