@@ -11,7 +11,7 @@ import scala.collection.JavaConverters
 
 object ConsumerApp extends App{
 
-  val consumer = new Consumer(topic = "test", broker = "localhost:9092")
+  val consumer = new Consumer(topic = "test", broker = "slave1:9092,slave2:9092,slave3:9092")
 
   consumer.receiveMsg()
 
