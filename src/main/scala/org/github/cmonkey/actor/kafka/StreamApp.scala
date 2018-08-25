@@ -8,7 +8,7 @@ import org.apache.kafka.streams.{KafkaStreams, StreamsBuilder, StreamsConfig}
 
 object StreamApp extends App{
 
-  val stream = new Stream(topic = "test", broker = "localhost:9092")
+  val stream = new Stream(topic = "test", broker = "slave1:9092,slave2:9092,slave3:9092")
 
   stream.executeStream()
 

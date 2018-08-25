@@ -7,7 +7,7 @@ import org.apache.kafka.common.serialization.StringSerializer
 
 object ProducerApp extends App{
 
-  val producer = new Producer(topic = "test", broker = "localhost:9092")
+  val producer = new Producer(topic = "test", broker = "slave1:9092,slave2:9092,slave3:9003")
 
   val msgList = List("a", "b", "c", "d")
 
