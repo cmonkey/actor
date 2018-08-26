@@ -11,7 +11,12 @@ object ProducerApp extends App{
 
   val msgList = List("a", "b", "c", "d")
 
-  producer.sendMesg(msgList)
+  Range(0, 100000000).foreach(item => {
+
+    producer.sendMesg(msgList)
+  })
+
+  producer.close()
 
 }
 
@@ -40,6 +45,9 @@ class Producer(topic: String, broker:String) {
       producer.send(record)
     })
 
+  }
+
+  def close() = {
     producer.close()
   }
 }
