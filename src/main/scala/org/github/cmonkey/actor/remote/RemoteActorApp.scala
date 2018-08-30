@@ -1,5 +1,14 @@
 package org.github.cmonkey.actor.remote
 
-class RemoteActorApp {
+import akka.actor.{ActorSystem, Props}
 
+object RemoteActorApp extends App{
+
+  val actorSystem = ActorSystem("remoteSystem")
+
+  val remoteActor = actorSystem.actorOf(Props[RemoteActor], "remoteActor")
+
+  remoteActor ! "msg"
+
+  //actorSystem.terminate()
 }
