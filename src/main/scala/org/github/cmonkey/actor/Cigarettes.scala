@@ -1,5 +1,8 @@
 package org.github.cmonkey.actor
 
+
+import scala.util.{Success, Try, Failure}
+
 case class Customer(age: Int)
 
 class Cigarettes
@@ -14,6 +17,14 @@ object CigarettesApp extends App {
       new Cigarettes
     }
 
+  }
+
+  def buyCiperetiesTry(customer: Customer): Try[Cigarettes] = {
+    if(customer.age < 16){
+      Failure(throw UnderAgeException(s"Customer must be older than 16 but was ${customer.age}"))
+    }else{
+      Success(new Cigarettes)
+    }
   }
 
   val buy = buyCigareties(Customer(12))
