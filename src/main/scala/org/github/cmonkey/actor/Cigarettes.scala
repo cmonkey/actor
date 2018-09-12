@@ -16,5 +16,14 @@ object CigarettesApp extends App {
 
   }
 
-  val buy = buyCigareties(new Customer(12))
+  val buy = buyCigareties(Customer(12))
+
+  val youngCustomer = Customer(15)
+
+  try{
+    buyCigareties(youngCustomer)
+    "You age"
+  }catch{
+    case UnderAgeException(msg) => msg
+  }
 }
