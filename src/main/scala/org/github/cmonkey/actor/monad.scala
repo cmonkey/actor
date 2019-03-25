@@ -1,3 +1,5 @@
+package org.github.cmonkey.actor
+
 trait Monad[T] {
   def flatMap[U](f: T => Monad[U]): Monad[U]
 }
