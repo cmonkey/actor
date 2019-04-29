@@ -24,5 +24,15 @@ object FutureApp extends App{
 
   f.map (z => println(s"Done, ${z.size} jobs run"))
 
+  val fParallel = for{
+    f1 <- job(1)
+    f2 <- Future.sequence(List(job(f1), job(f1)))
+    f3 <- job(f2.head)
+    f4 <- Future.sequence(List(job(f3), job(f3)))
+    f5 <- job(f4.head)
+  } yield f2.size + f4.size
+
+  fParallel.foreach(z => println(s" Done, $z jobs run in parallel"))
+
   Thread.sleep(6000)
 }
