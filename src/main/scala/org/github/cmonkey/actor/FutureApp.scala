@@ -36,7 +36,7 @@ object FutureApp extends App{
 
   Thread.sleep(6000)
 
-  val eFuture = Future{"hi"}.map(z => z + 1)
+  val eFuture = Future{"hi".toInt}.recover{case e => 0}.map(z => z + 1)
 
-  println(eFuture)
+  println(eFuture.foreach(z => println(s"${z}")))
 }
