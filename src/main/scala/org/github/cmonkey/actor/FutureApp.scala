@@ -35,4 +35,8 @@ object FutureApp extends App{
   fParallel.foreach(z => println(s" Done, $z jobs run in parallel"))
 
   Thread.sleep(6000)
+
+  val eFuture = Future{"hi"}.map(z => z + 1)
+
+  println(eFuture)
 }
